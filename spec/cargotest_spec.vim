@@ -12,10 +12,10 @@ describe "Cargo"
   end
 
   it "runs all for nearest tests"
-    view normal_test.rs
+    view +5 normal_test.rs
     TestNearest
 
-    Expect g:test#last_command == 'cargo test'
+    Expect g:test#last_command == 'cargo test test_foo'
   end
 
   it "runs all for file tests"
