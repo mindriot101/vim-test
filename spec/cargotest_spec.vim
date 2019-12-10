@@ -12,10 +12,18 @@ describe "Cargo"
   end
 
   it "runs all for nearest tests"
-    view +5 normal_test.rs
+    view +7 src/lib.rs
     TestNearest
 
-    Expect g:test#last_command == 'cargo test test_foo'
+    Expect g:test#last_command == 'cargo test tests::it_works -- --exact'
+  end
+
+  it "runs all for nearest tests in modules"
+    SKIP "not implemented separate modules yet"
+    view +5 src/foo.rs
+    TestNearest
+
+    Expect g:test#last_command == 'cargo test foo::tests::it_works -- --exact'
   end
 
   it "runs all for file tests"

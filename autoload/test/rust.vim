@@ -1,4 +1,4 @@
 let test#rust#patterns = {
-  \ 'test': ['\v\s*#\[test\]\n.*fn .s*'],
-  \ 'namespace': [],
+  \ 'test': ['\v\s*#\[test\]\s*fn\s+(\w+)\('],
+  \ 'namespace': ['\v#\[cfg\(test\)\]\s*mod\s*(\w+)'],
   \}
